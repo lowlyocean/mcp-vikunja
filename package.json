@@ -1,0 +1,28 @@
+{
+  "name": "mcp-vikunja",
+  "version": "1.0.0",
+  "description": "Simple Model Context Protocol server for setting Vikunja reminders",
+  "main": "src/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "type": "module",
+  "bin": {
+    "mcp-vikunja": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.5.0",
+    "javascript-time-ago": "^2.5.11",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "typescript": "^5.7.3"
+  }
+}
