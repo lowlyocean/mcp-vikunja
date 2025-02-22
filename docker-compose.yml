@@ -1,0 +1,22 @@
+services:
+  mcp-vikunja:
+    container_name: mcp-vikunja
+    restart: unless-stopped
+    pull_policy: build
+    image: lowlyocean/mcp-vikunja:latest
+    build:
+      context: .
+      network: host
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      PORT: ${PORT}
+      LISTEN_ADDRESS: ${LISTEN_ADDRESS}
+      VIKUNJA_API_BASE: ${VIKUNJA_API_BASE}
+      CREATE_TASK_TOKEN: ${CREATE_TASK_TOKEN}
+      GET_TASKS_TOKEN: ${GET_TASKS_TOKEN}
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: ${NETWORK_MODE}
+  
