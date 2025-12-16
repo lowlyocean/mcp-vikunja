@@ -76,7 +76,7 @@ async function getVikunjaReminders<T>(url: string): Promise<T | null> {
     "Set a reminder at a specific time",
     {
         title: z.string().describe("Description of the reminder"),
-        due_date: z.string().datetime({ local: true, offset: true }).describe(`ISO 8601 time, with seconds, in ${Intl.DateTimeFormat().resolvedOptions().timeZone} IANA time zone`)
+        due_date: z.string().datetime({ local: true, offset: true }).describe(`ISO 8601 format with date, time (including seconds) and time zone offset, in ${Intl.DateTimeFormat().resolvedOptions().timeZone} IANA time zone`)
     },
     async ({ title, due_date }) => {
       const setRemindUrl = `${process.env.VIKUNJA_API_BASE}/api/v1/projects/1/tasks`;
